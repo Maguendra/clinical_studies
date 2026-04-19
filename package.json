@@ -2,6 +2,7 @@
   "name": "clinical_studies",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
@@ -9,7 +10,8 @@
     "lint": "eslint",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
-    "db:studio": "drizzle-kit studio"
+    "db:studio": "drizzle-kit studio",
+    "seed": "npx tsx --env-file=.env.local scripts/seed-pubmed.ts"
   },
   "dependencies": {
     "@auth/drizzle-adapter": "^1.11.2",
