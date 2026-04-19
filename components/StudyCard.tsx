@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useRef } from "react";
+import Link from "next/link";
 
 export interface Study {
   id: number;
@@ -91,9 +92,13 @@ export default function StudyCard({ study, onSwipe, isTop }: Props) {
           </span>
         )}
 
-        <h2 className="text-white font-bold text-lg leading-snug mb-3 line-clamp-3">
+        <Link
+          href={`/study/${study.id}`}
+          onClick={(e) => e.stopPropagation()}
+          className="block text-white font-bold text-lg leading-snug mb-3 line-clamp-3 hover:text-teal-300 transition-colors"
+        >
           {study.title}
-        </h2>
+        </Link>
 
         {study.authors && study.authors.length > 0 && (
           <p className="text-slate-400 text-sm mb-1">

@@ -41,7 +41,11 @@ export default async function LibraryPage() {
       ) : (
         <div className="grid gap-4">
           {savedStudies.map((s) => (
-            <div key={s.id} className="bg-slate-800 border border-slate-700 rounded-2xl p-5">
+            <Link
+              key={s.id}
+              href={`/study/${s.id}`}
+              className="block bg-slate-800 border border-slate-700 hover:border-teal-500/40 rounded-2xl p-5 transition-colors"
+            >
               {s.domain && (
                 <span className="inline-block bg-teal-500/15 text-teal-400 text-xs px-2 py-0.5 rounded-full mb-2">
                   {s.domain}
@@ -52,17 +56,10 @@ export default async function LibraryPage() {
                 {s.authors?.slice(0, 2).join(", ")}
                 {s.authors && s.authors.length > 2 && " et al."} · {s.year}
               </p>
-              {s.doi && (
-                <a
-                  href={`https://doi.org/${s.doi}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block mt-2 text-xs text-teal-500 hover:underline"
-                >
-                  Lire l&apos;article complet →
-                </a>
+              {s.abstract && (
+                <p className="text-slate-500 text-sm mt-2 line-clamp-2">{s.abstract}</p>
               )}
-            </div>
+            </Link>
           ))}
         </div>
       )}

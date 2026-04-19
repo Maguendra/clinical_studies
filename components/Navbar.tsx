@@ -10,6 +10,7 @@ export default function Navbar({ session }: { session: Session | null }) {
 
   const links = [
     { href: "/swipe", label: "Swipe" },
+    { href: "/search", label: "Recherche" },
     { href: "/library", label: "Bibliothèque" },
     { href: "/me", label: "Profil" },
   ];
